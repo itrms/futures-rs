@@ -55,7 +55,7 @@ pub(super) fn read_to_end_internal<R: AsyncRead + ?Sized>(
     loop {
         if g.len == g.buf.len() {
             unsafe {
-                g.buf.reserve(32);
+                // g.buf.reserve(32);
                 let capacity = g.buf.capacity();
                 g.buf.set_len(capacity);
                 super::initialize(&rd, &mut g.buf[g.len..]);
